@@ -24,6 +24,7 @@ public class Board : MonoBehaviour
         
     }
 
+    // 도마 위에 완성된 닭꼬치 생성
     public void InstSkewer(GameObject skewer)
     {
         for (int i = 0; i < skewers.Count; i++)
@@ -35,6 +36,7 @@ public class Board : MonoBehaviour
                 obj.transform.localRotation = Quaternion.Euler(90f, 90f, 0f);
                 obj.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
                 skewers[i] = obj;
+                ++GameManager.Instance.CookableCount;
                 break;
             }
         }

@@ -25,7 +25,7 @@ public class MouseClickScanner : MonoBehaviour
         {
             //Debug.Log("이벤트");
             // 접시 클릭 시 제작 모드 진입
-            if (raycastHit.transform.tag == "Event_Plate")
+            if (raycastHit.transform.tag == "Event_Plate" && GameManager.Instance.CookableCount < 7) // 도마 위에 최대 수량 미만의 음식이 있을 경우에만
             {
                 mouseClikedEvent_Make.Invoke();
             }
