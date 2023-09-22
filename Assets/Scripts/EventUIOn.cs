@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// ì´ë²¤íŠ¸ UI í™œì„±/ë¹„í™œì„± í´ë˜ìŠ¤
 public class EventUIOn : MonoBehaviour
 {
-    // ÀÌº¥Æ® UI ¿ÀºêÁ§Æ® ÀúÀå ¹è¿­
+    // ì´ë²¤íŠ¸ UI ì˜¤ë¸Œì íŠ¸ ì €ì¥ ë°°ì—´
     public GameObject[] eventUIArray;
 
     // Start is called before the first frame update
@@ -19,13 +20,13 @@ public class EventUIOn : MonoBehaviour
         
     }
 
-    // Á¦ÀÛ UI È°¼ºÈ­
+    // ì œì‘ UI í™œì„±í™”
     public void MakeUIOn()
     {
         eventUIArray[0].SetActive(true);
     }
 
-    // Á¦ÀÛ UI ºñÈ°¼ºÈ­
+    // ì œì‘ UI ë¹„í™œì„±í™”
     public void MakeUIOff()
     {
         eventUIArray[0].SetActive(false);

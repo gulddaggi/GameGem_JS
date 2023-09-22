@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7430551910314286544}
   - component: {fileID: 5814503372470686325}
   - component: {fileID: 8598976199705618111}
+  - component: {fileID: -2897787312834309765}
   m_Layer: 0
   m_Name: chopstick
   m_TagString: Untagged
@@ -83,3 +84,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-2897787312834309765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7806232645579458410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69f4703ba36c694d9d0862f1f0fc55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientPosList:
+  - {x: 0.0003, y: 0.0004, z: -0.009}
+  - {x: 0.0018, y: 0.0002, z: -0.0037}
+  - {x: 0.0014, y: 0.0008, z: 0.0041}
+  - {x: -0.0001, y: 0.0001, z: 0.0094}
+  - {x: -0.0002, y: -0.0002, z: 0.0147}
+  - {x: 0.0003, y: 0.0001, z: 0.023}
+  ingredientPrefList:
+  - {fileID: 5005065217760612685, guid: bdc9fb3c7f216c048b275f6b56ab6ba2, type: 3}
+  - {fileID: 8601581240396805613, guid: c6eec9620b32c8e40a3bd369788c9aee, type: 3}
+  - {fileID: 1052833897501868277, guid: 0f389b30b1e97c5479fec27e9a5b4635, type: 3}
+  curInstList: []
+  count: 0

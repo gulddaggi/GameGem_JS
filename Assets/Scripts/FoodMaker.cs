@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 음식 제작과 관련된 기능 수행 클래스
+
 public class FoodMaker : MonoBehaviour
 {
     // 막대 생성 좌표 저장 오브젝트
