@@ -4766,33 +4766,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 311166141}
-        m_TargetAssemblyTypeName: FoodMaker, Assembly-CSharp
-        m_MethodName: DestroyStick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 241289585}
-        m_TargetAssemblyTypeName: MouseClickScanner, Assembly-CSharp
-        m_MethodName: InitScanner
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 236672068}
-        m_TargetAssemblyTypeName: EventUIOn, Assembly-CSharp
-        m_MethodName: MakeUIOff
+      - m_Target: {fileID: 1601870436}
+        m_TargetAssemblyTypeName: SpeakToSkewer, Assembly-CSharp
+        m_MethodName: FinishMakeEvent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7872,6 +7848,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ceb9ee9675be1b4787021f866e85b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  board: {fileID: 2565023842193210531}
+  canvas: {fileID: 236672063}
 --- !u!1 &1612875130
 GameObject:
   m_ObjectHideFlags: 0
@@ -10072,6 +10050,7 @@ GameObject:
   - component: {fileID: 2941724894723122713}
   - component: {fileID: 2268900114152696252}
   - component: {fileID: 4078070932642127222}
+  - component: {fileID: 4078070932642127223}
   m_Layer: 0
   m_Name: board_cutting_board_001
   m_TagString: Untagged
@@ -10635,6 +10614,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4078070932642127223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2565023842193210531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ffe7bf602468e46b220f6e66b774bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skewerPosList:
+  - {x: -0.01981, y: 0, z: 0.005}
+  - {x: -0.015, y: 0, z: 0.005}
+  - {x: -0.01, y: 0, z: 0.005}
+  - {x: -0.005, y: 0, z: 0.005}
+  - {x: 0, y: 0, z: 0.005}
+  - {x: 0.005, y: 0, z: 0.005}
+  - {x: 0.01, y: 0, z: 0.005}
+  skewers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  count: 0
 --- !u!4 &4090796277434909548
 Transform:
   m_ObjectHideFlags: 0

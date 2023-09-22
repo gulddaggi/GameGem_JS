@@ -21,13 +21,12 @@ public class MouseClickScanner : MonoBehaviour
         RaycastHit raycastHit;
 
         // ray 방향으로 Raycast 수행. 
-        if (Physics.Raycast(ray, out raycastHit) && mouseEventEnable) // ray가 물체와 충돌할 + 트리거 활성화일 경우
+        if (Physics.Raycast(ray, out raycastHit)) // ray가 물체와 충돌할 + 트리거 활성화일 경우
         {
             //Debug.Log("이벤트");
             // 접시 클릭 시 제작 모드 진입
             if (raycastHit.transform.tag == "Event_Plate")
             {
-                mouseEventEnable = false;
                 mouseClikedEvent_Make.Invoke();
             }
         }
