@@ -10,6 +10,11 @@ public class SpeakToSkewer : MonoBehaviour
         this.gameObject.GetComponentInChildren<Skewer>().InstIngredient(_index);
     }
 
+    public void SpeakDelEvent(int _index)
+    {
+        this.gameObject.GetComponentInChildren<Skewer>().DelIngredient(_index);
+    }
+
     // Start is called before the first frame update
     void Start()
     {

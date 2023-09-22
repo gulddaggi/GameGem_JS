@@ -3,29 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-// ¸¶¿ì½º Å¬¸¯À» °¨ÁöÇÏ´Â Å¬·¡½º
+// ë§ˆìš°ìŠ¤ í´ë¦­ì„ ê°ì§€í•˜ëŠ” í´ë˜ìŠ¤
 public class MouseClickScanner : MonoBehaviour
 {
-    // ¸¶¿ì½º ÀÌº¥Æ® Æ®¸®°Å
+    // ë§ˆìš°ìŠ¤ ì´ë²¤íŠ¸ íŠ¸ë¦¬ê±°
     public bool mouseEventEnable = true;
 
-    public UnityEvent mouseClikedEvent;
+    // ë§ˆìš°ìŠ¤ í´ë¦­ ì´ë²¤íŠ¸. ì œì‘ ëª¨ë“œ ì§„ì…
+    public UnityEvent mouseClikedEvent_Make;
 
-    // ¿ÀºêÁ§Æ® Å¬¸¯½Ã ¹ßµ¿ÇÏ´Â À¯´ÏÆ¼ ÀÌº¥Æ®ÇÔ¼ö
+
+    // ì˜¤ë¸Œì íŠ¸ í´ë¦­ì‹œ ë°œë™í•˜ëŠ” ìœ ë‹ˆí‹° ì´ë²¤íŠ¸í•¨ìˆ˜
     public void OnMouseDown()
     {
-        // ¸ŞÀÎ Ä«¸Ş¶ó È­¸éÀÇ ½ºÅ©¸° ÁÂÇ¥°è ±â¹İÀ¸·Î ÇöÀç ¸¶¿ì½º ÁÂÇ¥¿¡¼­ÀÇ ray ¼±¾ğ
+        // ë©”ì¸ ì¹´ë©”ë¼ í™”ë©´ì˜ ìŠ¤í¬ë¦° ì¢Œí‘œê³„ ê¸°ë°˜ìœ¼ë¡œ í˜„ì¬ ë§ˆìš°ìŠ¤ ì¢Œí‘œì—ì„œì˜ ray ì„ ì–¸
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit raycastHit;
 
-        // ray ¹æÇâÀ¸·Î Raycast ¼öÇà. 
-        if (Physics.Raycast(ray, out raycastHit) && mouseEventEnable) // ray°¡ ¹°Ã¼¿Í Ãæµ¹ÇÒ + Æ®¸®°Å È°¼ºÈ­ÀÏ °æ¿ì
+        // ray ë°©í–¥ìœ¼ë¡œ Raycast ìˆ˜í–‰. 
+        if (Physics.Raycast(ray, out raycastHit) && mouseEventEnable) // rayê°€ ë¬¼ì²´ì™€ ì¶©ëŒí•  + íŠ¸ë¦¬ê±° í™œì„±í™”ì¼ ê²½ìš°
         {
-            //Debug.Log("ÀÌº¥Æ®");
+            //Debug.Log("ì´ë²¤íŠ¸");
+            // ì ‘ì‹œ í´ë¦­ ì‹œ ì œì‘ ëª¨ë“œ ì§„ì…
             if (raycastHit.transform.tag == "Event_Plate")
             {
                 mouseEventEnable = false;
-                mouseClikedEvent.Invoke();
+                mouseClikedEvent_Make.Invoke();
             }
         }
     }

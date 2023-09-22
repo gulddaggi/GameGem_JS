@@ -33,7 +33,19 @@ public class Skewer : MonoBehaviour
     {
         GameObject obj = Instantiate(ingredientPrefList[_index], this.transform);
         obj.transform.localPosition = ingredientPosList[count];
+        obj.GetComponent<Ingredient>().Index = count;
+        //curInstList.Add(obj);
         ++count;
+    }
+
+    public void DelIngredient(int _index)
+    {
+        if (_index + 1 == count) // 제일 끝에 있는 재료일 경우
+        {
+            DestroyImmediate(this.transform.GetChild(_index).gameObject);
+            //curInstList.Remove(curInstList[_index]);
+            --count;
+        }
     }
 
 }

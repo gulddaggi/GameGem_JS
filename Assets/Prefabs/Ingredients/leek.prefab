@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 8941092476374200151}
   - component: {fileID: 5456955001844572402}
   - component: {fileID: 7808688564525093944}
+  - component: {fileID: 355844634578663559}
+  - component: {fileID: -1547943657207094604}
   m_Layer: 0
   m_Name: leek
-  m_TagString: Untagged
+  m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,3 +85,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &355844634578663559
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8601581240396805613}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.048066415, y: 0.03517819, z: 0.04090098}
+  m_Center: {x: -0.00018384773, y: -0.00005893783, z: 0.00009556021}
+--- !u!114 &-1547943657207094604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8601581240396805613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa4d55b4d9ed924893a3758712ea852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
