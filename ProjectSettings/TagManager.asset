@@ -9,6 +9,7 @@ TagManager:
   - Skewer_uncooked
   - Skewer_cooking
   - Skewer_done
+  - Skewer_BurnOut
   layers:
   - Default
   - TransparentFX

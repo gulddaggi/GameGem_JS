@@ -58,6 +58,7 @@ public class Board : MonoBehaviour
     public void BoardToBurner(int _index)
     {
         burner.GetComponent<Burner>().InstSkewer(skewers[_index]);
+        --GameManager.Instance.CookableCount;
         Destroy(skewers[_index]);
     }
 }

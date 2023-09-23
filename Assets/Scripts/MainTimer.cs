@@ -25,12 +25,14 @@ public class MainTimer : MonoBehaviour
         if (setTime < 60f)
         {
             timerText.text = "남은 시간 : " + (int)setTime + "초";
+            if (setTime <= 0)
+            {
+                timerText.text = "남은 시간 : 0초";
+                GameManager.Instance.GameOver();
+            }
         }
 
-        if (setTime <= 0)
-        {
-            timerText.text = "남은 시간 : 0초";
-        }
+
     }
 }
 

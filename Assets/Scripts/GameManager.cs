@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 // 게임 진행과 관련된 각종 기능을 수행하는 싱글톤 클래스.
 public class GameManager : MonoBehaviour
@@ -12,6 +13,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject orderCreater;
 
+    public GameObject gameOverObj;
+
+    public GameObject finalScoreText;
 
     // 도마 위에 존재하는 요리 가능한 음식 수
     int cookableCount = 0;
@@ -73,6 +77,28 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            if (instance.orderCreater == null)
+            {
+                instance.orderCreater = this.orderCreater;
+            }
+
+            if (instance.scoreText == null)
+            {
+                instance.scoreText = this.scoreText;
+
+            }
+
+            if (instance.gameOverObj == null)
+            {
+                instance.gameOverObj = this.gameOverObj;
+            }
+
+            if (instance.finalScoreText == null)
+            {
+                instance.finalScoreText = this.finalScoreText;
+            }
+            instance.ScoreUpdate();
+            
             DestroyImmediate(this.gameObject);
         }
     }
@@ -132,7 +158,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ScoreUpdate();
+        if (scoreText != null)
+        {
+            ScoreUpdate();
+        }
     }
 
     // Update is called once per frame
@@ -144,5 +173,22 @@ public class GameManager : MonoBehaviour
     public void ScoreUpdate()
     {
         scoreText.GetComponent<Text>().text = "점수 : " + score.ToString();
+    }
+
+    public void GameStart()
+    {
+        score = 0;
+        SceneManager.LoadScene("MainPlayScene");
+    }
+
+    public void GameQuit()
+    {
+        Application.Quit();
+    }
+
+    public void GameOver()
+    {
+        gameOverObj.SetActive(true);
+        finalScoreText.GetComponent<Text>().text = "수익 : " + score.ToString();
     }
 }

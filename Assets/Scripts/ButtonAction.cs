@@ -142,6 +142,7 @@ public class ButtonAction : MonoBehaviour
         }
         enablekey = false;
         curIndex = 0;
+        minusValue = 0;
     }
 
 }
