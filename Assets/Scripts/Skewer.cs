@@ -79,7 +79,7 @@ public class Skewer : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (enableToScan && GameManager.Instance.CookingCount < 3)
+        if (enableToScan)
         {
             // 메인 카메라 화면의 스크린 좌표계 기반으로 현재 마우스 좌표에서의 ray 선언
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -88,22 +88,34 @@ public class Skewer : MonoBehaviour
             // ray 방향으로 Raycast 수행. 
             if (Physics.Raycast(ray, out raycastHit)) // ray가 물체와 충돌할 + 트리거 활성화일 경우
             {
-                // 재료 클릭 시 해당 재료 삭제
-                if (raycastHit.transform.tag == "Skewer_uncooked")
+                // 도마에서 버너로 오브젝트 이동
+                if (raycastHit.transform.tag == "Skewer_uncooked" && GameManager.Instance.CookingCount < 3)
                 {
                     this.GetComponentInParent<Board>().BoardToBurner(index);
                     this.transform.tag = "Skewer_cooking";
+                }
+                // 버튼 액션 활성화
+                else if (raycastHit.transform.tag == "Skewer_cooking")
+                {
+                    this.GetComponentInParent<Burner>().ActiveButtonAction();
+                    this.transform.tag = "Skewer_done";
+                }
+                else if (raycastHit.transform.tag == "Skewer_done")
+                {
+                    this.GetComponentInParent<Burner>().DelSkewer(index);
                 }
             }
         }
     }
 
+    // 버너 위에 생성되었을 때
     public void OnTheBurner()
     {
         DisableToScan();
-        Invoke("ButtonActionReady", 2f);
+        Invoke("ButtonActionReady", 2f); // 2초 후부터 버튼 액션 진입 가능
     }
 
+    // 버튼 액션 진입 활성화
     public void ButtonActionReady()
     {
         EnableToScan();
