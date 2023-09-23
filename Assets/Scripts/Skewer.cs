@@ -27,6 +27,9 @@ public class Skewer : MonoBehaviour
     // 현재 음식의 인덱스
     public int index = 0;
 
+    // 버튼 액션 진입 표시 텍스트
+    public GameObject buttonActionText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -93,5 +96,22 @@ public class Skewer : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void OnTheBurner()
+    {
+        DisableToScan();
+        Invoke("ButtonActionReady", 2f);
+    }
+
+    public void ButtonActionReady()
+    {
+        EnableToScan();
+        Instantiate(buttonActionText, this.transform);
+    }
+
+    public void ButtonActionTimeOver()
+    {
+
     }
 }

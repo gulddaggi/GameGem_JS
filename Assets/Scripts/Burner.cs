@@ -41,6 +41,7 @@ public class Burner : MonoBehaviour
                 obj.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
 
                 obj.GetComponent<Skewer>().index = i;
+                obj.GetComponent<Skewer>().OnTheBurner(); // 요리 중 기능 수행.
                 skewers[i] = obj;
                 ++GameManager.Instance.CookingCount;
 
