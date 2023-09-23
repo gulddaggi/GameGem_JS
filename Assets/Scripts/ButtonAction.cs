@@ -9,6 +9,7 @@ public class ButtonAction : MonoBehaviour
     public GameObject[] buttons;
     public int curIndex;
     public bool enablekey = false;
+    int minusValue = 0;
 
     // 버튼 액션 종료 이벤트
     public UnityEvent ButtonActionDone;
@@ -38,6 +39,7 @@ public class ButtonAction : MonoBehaviour
                 else if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
                 {
                     buttonActionKey.InCorrect();
+                    minusValue += 100;
                     ++curIndex;
 
                 }
@@ -53,6 +55,7 @@ public class ButtonAction : MonoBehaviour
                 else if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.RightArrow))
                 {
                     buttonActionKey.InCorrect();
+                    minusValue += 100;
                     ++curIndex;
 
                 }
@@ -69,6 +72,7 @@ public class ButtonAction : MonoBehaviour
                 else if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
                 {
                     buttonActionKey.InCorrect();
+                    minusValue += 100;
                     ++curIndex;
 
                 }
@@ -85,10 +89,10 @@ public class ButtonAction : MonoBehaviour
                 else if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
                 {
                     buttonActionKey.InCorrect();
+                    minusValue += 100;
                     ++curIndex;
 
                 }
-
                 break;
 
             default:
@@ -104,6 +108,7 @@ public class ButtonAction : MonoBehaviour
 
     void EventInvoke()
     {
+        GameManager.Instance.Value -= minusValue;
         ButtonActionDone.Invoke();
 
     }
@@ -137,6 +142,7 @@ public class ButtonAction : MonoBehaviour
         }
         enablekey = false;
         curIndex = 0;
+        minusValue = 0;
     }
 
 }

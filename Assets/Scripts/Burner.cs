@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // 버너 클래스. 도마 위 음식을 버너 위 생성 및 버튼 액션 진입.
 public class Burner : MonoBehaviour
@@ -15,8 +16,11 @@ public class Burner : MonoBehaviour
 
     public int count = 0;
 
+
     // canvas 오브젝트
     public GameObject canvas;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -59,9 +63,19 @@ public class Burner : MonoBehaviour
     // 요리 완료된 닭꼬치 삭제
     public void DelSkewer(int _index)
     {
-        Destroy(skewers[_index]);
+        // 점수 측정
+        GameManager.Instance.OrderCheck();
         --GameManager.Instance.CookingCount;
         if (GameManager.Instance.CookingCount == 0) DeactiveEffect();
+        skewers[_index] = null;
+
+    }
+
+    public void DelSkewer_Burn(int _index)
+    {
+        --GameManager.Instance.CookingCount;
+        if (GameManager.Instance.CookingCount == 0) DeactiveEffect();
+        skewers[_index] = null;
     }
 
     void ActiveEffect()
@@ -80,8 +94,15 @@ public class Burner : MonoBehaviour
         }
     }
 
-    public void ActiveButtonAction()
+    public void ActiveButtonAction(int _index)
     {
-        canvas.GetComponent<EventUIOn>().ButtonActionUIOn();
+        if (GameManager.Instance.curButtonObj == null)
+        {
+            GameManager.Instance.AssignCurObj(skewers[_index]);
+            canvas.GetComponent<EventUIOn>().ButtonActionUIOn();
+            skewers[_index].transform.tag = "Skewer_done";
+        }
     }
+
+
 }
