@@ -7,6 +7,7 @@ public class Ingredient : MonoBehaviour
 {
     // 인덱스
     private int index = 0;
+    public int ingred_index = 0; // 닭 : 0, 파 : 1, 버섯 : 2
 
     // 변수 index의 프로퍼티
     public int Index { get { return index; } set { index = value; } }

@@ -30,10 +30,24 @@ public class Skewer : MonoBehaviour
     // 버튼 액션 진입 표시 텍스트
     public GameObject buttonActionText;
 
+    public int[] ab = new int[6];
+
     // Start is called before the first frame update
     void Start()
     {
         speakToSkewer = GetComponentInParent<SpeakToSkewer>();
+    }
+
+    private void OnEnable()
+    {
+        if (this.transform.childCount != 0)
+        {
+            for (int i = 0; i < ab.Length; i++)
+            {
+                int a = this.transform.GetChild(i).GetComponent<Ingredient>().ingred_index;
+                ab[i] = a;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -48,7 +62,7 @@ public class Skewer : MonoBehaviour
         GameObject obj = Instantiate(ingredientPrefList[_index], this.transform);
         obj.transform.localPosition = ingredientPosList[count];
         obj.GetComponent<Ingredient>().Index = count;
-        //curInstList.Add(obj);
+        curInstList.Add(obj);
         ++count;
         if (count == 6)
         {
@@ -62,7 +76,7 @@ public class Skewer : MonoBehaviour
         if (_index + 1 == count) // 제일 끝에 있는 재료일 경우
         {
             DestroyImmediate(this.transform.GetChild(_index).gameObject);
-            //curInstList.Remove(curInstList[_index]);
+            curInstList.Remove(curInstList[_index]);
             --count;
         }
     }
@@ -93,16 +107,22 @@ public class Skewer : MonoBehaviour
                 {
                     this.GetComponentInParent<Board>().BoardToBurner(index);
                     this.transform.tag = "Skewer_cooking";
+
                 }
                 // 버튼 액션 활성화
                 else if (raycastHit.transform.tag == "Skewer_cooking")
                 {
-                    this.GetComponentInParent<Burner>().ActiveButtonAction();
-                    this.transform.tag = "Skewer_done";
+                    this.GetComponentInParent<Burner>().ActiveButtonAction(index);
+                }
+                else if(raycastHit.transform.tag == "Skewer_BurnOut")
+                {
+                    this.GetComponentInParent<Burner>().DelSkewer_Burn(index);
+                    Destroy(this.gameObject);
                 }
                 else if (raycastHit.transform.tag == "Skewer_done")
                 {
                     this.GetComponentInParent<Burner>().DelSkewer(index);
+                    Destroy(this.gameObject);
                 }
             }
         }
@@ -124,6 +144,12 @@ public class Skewer : MonoBehaviour
 
     public void ButtonActionTimeOver()
     {
+
+    }
+
+    public void TimerOver()
+    {
+        this.transform.tag = "Skewer_BurnOut";
 
     }
 }
