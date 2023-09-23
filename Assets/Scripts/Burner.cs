@@ -15,6 +15,9 @@ public class Burner : MonoBehaviour
 
     public int count = 0;
 
+    // canvas 오브젝트
+    public GameObject canvas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +44,7 @@ public class Burner : MonoBehaviour
                 obj.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
 
                 obj.GetComponent<Skewer>().index = i;
+                obj.GetComponent<Skewer>().OnTheBurner(); // 요리 중 기능 수행.
                 skewers[i] = obj;
                 ++GameManager.Instance.CookingCount;
 
@@ -50,6 +54,14 @@ public class Burner : MonoBehaviour
                 break;
             }
         }
+    }
+
+    // 요리 완료된 닭꼬치 삭제
+    public void DelSkewer(int _index)
+    {
+        Destroy(skewers[_index]);
+        --GameManager.Instance.CookingCount;
+        if (GameManager.Instance.CookingCount == 0) DeactiveEffect();
     }
 
     void ActiveEffect()
@@ -66,5 +78,10 @@ public class Burner : MonoBehaviour
         {
             particles[i].SetActive(false);
         }
+    }
+
+    public void ActiveButtonAction()
+    {
+        canvas.GetComponent<EventUIOn>().ButtonActionUIOn();
     }
 }

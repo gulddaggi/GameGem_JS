@@ -110,6 +110,8 @@ MonoBehaviour:
   - {fileID: 1052833897501868277, guid: 0f389b30b1e97c5479fec27e9a5b4635, type: 3}
   curInstList: []
   count: 0
+  index: 0
+  buttonActionText: {fileID: 7767679368750742287, guid: 8b8eeec02e67ad647839cb7627dcfb26, type: 3}
 --- !u!65 &6421022592587392063
 BoxCollider:
   m_ObjectHideFlags: 0

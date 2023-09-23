@@ -8,6 +8,8 @@ public class EventUIOn : MonoBehaviour
     // 이벤트 UI 오브젝트 저장 배열
     public GameObject[] eventUIArray;
 
+    public int curIndex = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,5 +32,15 @@ public class EventUIOn : MonoBehaviour
     public void MakeUIOff()
     {
         eventUIArray[0].SetActive(false);
+    }
+
+    public void ButtonActionUIOn()
+    {
+        eventUIArray[1].SetActive(true);
+    }
+
+    public void ButtonActionUIOff()
+    {
+        eventUIArray[1].SetActive(false);
     }
 }

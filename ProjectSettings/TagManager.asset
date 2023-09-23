@@ -8,6 +8,7 @@ TagManager:
   - Ingredient
   - Skewer_uncooked
   - Skewer_cooking
+  - Skewer_done
   layers:
   - Default
   - TransparentFX
