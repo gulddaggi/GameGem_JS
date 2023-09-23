@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Event_Plate
   - Ingredient
+  - Skewer_uncooked
+  - Skewer_cooking
   layers:
   - Default
   - TransparentFX

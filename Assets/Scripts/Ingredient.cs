@@ -23,11 +23,8 @@ public class Ingredient : MonoBehaviour
             // 재료 클릭 시 해당 재료 삭제
             if (raycastHit.transform.tag == "Ingredient")
             {
-                //mouseEventEnable = false;
-
                 int index = raycastHit.transform.GetComponent<Ingredient>().Index;
                 this.GetComponentInParent<Skewer>().DelIngredient(index);
-                //mouseClikedEvent_Delete.Invoke();
             }
         }
     }

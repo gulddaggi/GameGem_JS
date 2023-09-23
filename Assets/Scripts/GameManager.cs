@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     // 도마 위에 존재하는 요리 가능한 음식 수
     int cookableCount = 0;
 
+    // 현재 요리중인 음식 수
+    int cookingCount = 0;
+
     public int CookableCount
     {
         get
@@ -19,6 +22,18 @@ public class GameManager : MonoBehaviour
         set
         {
             cookableCount = value;
+        }
+    }
+
+    public int CookingCount
+    {
+        get
+        {
+            return cookingCount;
+        }
+        set
+        {
+            cookingCount = value;
         }
     }
 
